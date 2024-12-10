@@ -6,6 +6,9 @@ import { getMoviesNowPlaying } from "../../../services/getMoviesNowPlaying";
 import { Soon } from "../../../components/soon";
 import { Currently } from "../../../components/currently";
 import useHandlePage from "../../../hooks/useHandlePage";
+import { Footer } from "../../../components/footer";
+import { Line } from "../../../components/line";
+import { Footer2 } from "../../../components/footer2";
 
 export const Home = () => {
   const [movies, setMovies] = useState<IMovies[]>([]);
@@ -70,6 +73,9 @@ export const Home = () => {
       </Container>
       <Soon />
       <Currently />
+      <Footer />
+      <Line />
+      <Footer2 />
     </Principal>
   );
 };
