@@ -14,12 +14,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
       setLoading(false);
-    });
+    } else {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        setUser(user);
+        setLoading(false);
+        
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user)); 
+        } else {
+          localStorage.removeItem('user'); 
+        }
+      });
 
-    return unsubscribe;
+      return unsubscribe;
+    }
   }, []);
 
   return (

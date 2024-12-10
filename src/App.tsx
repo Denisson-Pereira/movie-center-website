@@ -1,12 +1,17 @@
 import { AuthProvider } from "./context"
-import { RoutesApp } from "./routes"
+import { ThemeProvider } from "./context/themeContext"
+import { RoutesApp } from "./routes/index.routes"
+import { GlobalStyle } from "./themes/globalStyles"
 
 function App() {
 
   return (
-    <AuthProvider>
-      <RoutesApp />
-    </AuthProvider>
+    <ThemeProvider>
+      <GlobalStyle />
+      <AuthProvider>
+        <RoutesApp />
+      </AuthProvider>
+    </ThemeProvider>
   )
 }
 
