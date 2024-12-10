@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { NavBar } from "../../../components/navBar";
-import { Container, Filmes, MovieCard, MovieImage, MovieList } from "./styles";
+import { Container, Filmes, MovieCard, MovieImage, MovieList, Principal } from "./styles";
 import { IMovies } from "../../../model/IMovies";
 import { getMoviesNowPlaying } from "../../../services/getMoviesNowPlaying";
+import { Soon } from "../../../components/soon";
+import { Currently } from "../../../components/currently";
 
 export const Home = () => {
   const [movies, setMovies] = useState<IMovies[]>([]);
@@ -40,26 +42,30 @@ export const Home = () => {
   };
 
   return (
-    <Container $backgroundImage={backgroundImage}>
-      <NavBar />
-      <Filmes>
-        <MovieList
-          ref={movieListRef}
-          onMouseMove={handleMouseMove}  // Detecta o movimento do mouse
-          onMouseEnter={() => (movieListRef.current!.style.cursor = "grab")}
-          onMouseLeave={() => (movieListRef.current!.style.cursor = "default")}
-        >
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              onMouseEnter={() => handleMouseEnter(movie)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <MovieImage src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-            </MovieCard>
-          ))}
-        </MovieList>
-      </Filmes>
-    </Container>
+    <Principal>
+      <Container $backgroundImage={backgroundImage}>
+        <NavBar />
+        <Filmes>
+          <MovieList
+            ref={movieListRef}
+            onMouseMove={handleMouseMove}  // Detecta o movimento do mouse
+            onMouseEnter={() => (movieListRef.current!.style.cursor = "grab")}
+            onMouseLeave={() => (movieListRef.current!.style.cursor = "default")}
+          >
+            {movies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                onMouseEnter={() => handleMouseEnter(movie)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <MovieImage src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+              </MovieCard>
+            ))}
+          </MovieList>
+        </Filmes>
+      </Container>
+      <Soon />
+      <Currently />
+    </Principal>
   );
 };

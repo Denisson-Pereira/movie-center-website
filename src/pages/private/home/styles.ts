@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Principal = styled.div`
+
+`;
+
 export const Container = styled.div<{ $backgroundImage: string }>`
   display: flex;
   flex-direction: column;
