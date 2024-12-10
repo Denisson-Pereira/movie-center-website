@@ -1,5 +1,6 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../../firebaseConfig';
+import { BackgroundImage, Button, Container, ProfileCard, ProfileContent } from './styles';
 
 export const Perfil = () => {
   const handleLogout = async () => {
@@ -13,9 +14,15 @@ export const Perfil = () => {
   };
 
   return (
-    <div>
-      <div>teste rota privada</div>
-      <button onClick={handleLogout}>Sair</button>
-    </div>
+    <Container>
+      <BackgroundImage src="https://example.com/profile-bg.jpg" alt="Background" />
+      <ProfileCard>
+        <ProfileContent>
+          <h1>Bem-vindo, Usuário!</h1>
+          <p>Esta é a sua área de perfil. Você pode gerenciar suas configurações aqui.</p>
+          <Button onClick={handleLogout}>Sair</Button>
+        </ProfileContent>
+      </ProfileCard>
+    </Container>
   );
 };

@@ -16,4 +16,8 @@ export const Image = styled.div`
 export const Icon = styled.div`
   color: ${props => props.theme.colors.primary};
   font-size: 2vw;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

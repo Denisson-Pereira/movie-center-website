@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Principal = styled.div`
-
+  background-color: ${(props) => props.theme.colors.bg};
 `;
 
 export const Container = styled.div<{ $backgroundImage: string }>`
