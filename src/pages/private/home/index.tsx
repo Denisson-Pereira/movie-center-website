@@ -5,12 +5,15 @@ import { IMovies } from "../../../model/IMovies";
 import { getMoviesNowPlaying } from "../../../services/getMoviesNowPlaying";
 import { Soon } from "../../../components/soon";
 import { Currently } from "../../../components/currently";
+import useHandlePage from "../../../hooks/useHandlePage";
 
 export const Home = () => {
   const [movies, setMovies] = useState<IMovies[]>([]);
   const [backgroundImage, setBackgroundImage] = useState<string>("");
   const movieListRef = useRef<HTMLDivElement>(null);  
   const lastMouseXRef = useRef(0); 
+
+  const handlePage = useHandlePage();
 
   useEffect(() => {
     async function fetchData() {
@@ -57,6 +60,7 @@ export const Home = () => {
                 key={movie.id}
                 onMouseEnter={() => handleMouseEnter(movie)}
                 onMouseLeave={handleMouseLeave}
+                onClick={() => handlePage(movie.id)}
               >
                 <MovieImage src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
               </MovieCard>

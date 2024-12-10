@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
-import { IMovies } from "../models/IMovies";
 import { api } from "./tmdbConnection";
+import { IMovies } from "../model/IMovies";
 
 export const searchMoviesByName = async (searchTerm: string): Promise<IMovies[]> => {
   try {

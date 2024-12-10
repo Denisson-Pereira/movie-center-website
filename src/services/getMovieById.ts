@@ -1,4 +1,4 @@
-import { IMovies } from '../models/IMovies'; 
+import { IMovies } from '../model/IMovies';
 import { api } from './tmdbConnection';
 
 export const getMovieById = async (movieId: number): Promise<IMovies | null> => {
