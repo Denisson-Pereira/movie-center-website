@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
-import { Teste } from '../pages/private/teste'
+import { Perfil } from '../pages/private/perfil'
 import { ErrorPage } from '../pages/error'
+import { Home } from '../pages/private/home'
 
 
 export const IsUser = () => {
   return (
     <Routes>
-        <Route path='/' element={<Teste />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/perfil' element={<Perfil />} />
 
         <Route path='*' element={<ErrorPage />} />
     </Routes>

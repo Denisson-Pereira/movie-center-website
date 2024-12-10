@@ -6,8 +6,6 @@ import { NotUser } from "./notUser.routes";
 export const RoutesApp = () => {
 
     const { user } = useAuth();
-    console.log(user); 
-    console.log('user'); 
 
     return (
         <BrowserRouter>
