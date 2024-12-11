@@ -64,6 +64,7 @@ export const SignIn = () => {
             <TermsCheckbox>
               <input
                 id="check"
+                data-testid="check"
                 name="check"
                 type="checkbox"
                 checked={isChecked}
