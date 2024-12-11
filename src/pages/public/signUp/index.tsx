@@ -57,17 +57,21 @@ export const SignUp = () => {
           <Title>Criar Conta</Title>
           <InputField
             type="email"
+            name="email"
+            autoComplete="email"
             placeholder="Digite seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <InputField
             type="password"
+            name="password"
             placeholder="Digite sua senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputField
+            name="confirmPassword"
             type="password"
             placeholder="Confirme sua senha"
             value={confirmPassword}
@@ -76,11 +80,12 @@ export const SignUp = () => {
           {error && <ErrorMessage>{error}</ErrorMessage>}
           <TermsCheckbox>
               <input
+                name="check"
                 type="checkbox"
                 checked={isChecked}
                 onChange={() => setIsChecked(!isChecked)}
               />
-              <label>Eu concordo com os termos de uso.</label>
+              <p>Eu concordo com os termos de uso.</p>
             </TermsCheckbox>
           <SubmitButton type="submit">Cadastrar</SubmitButton>
           <NoAccountLink onClick={() => navigate("/")}>

@@ -44,13 +44,18 @@ export const SignIn = () => {
           <GlassEffect>
             <Title>Entrar</Title>
             <InputField
+              id="email"
               type="email"
+              name="email"
+              autoComplete="email"
               placeholder="Digite seu email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <InputField
+              id="password"
               type="password"
+              name="password"
               placeholder="Digite sua senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -58,11 +63,13 @@ export const SignIn = () => {
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <TermsCheckbox>
               <input
+                id="check"
+                name="check"
                 type="checkbox"
                 checked={isChecked}
                 onChange={() => setIsChecked(!isChecked)}
               />
-              <label>Eu concordo com os termos de uso.</label>
+              <p>Eu concordo com os termos de uso.</p>
             </TermsCheckbox>
             <SubmitButton type="submit">Entrar</SubmitButton>
             <NoAccountLink onClick={() => navigate("/signup")}>
