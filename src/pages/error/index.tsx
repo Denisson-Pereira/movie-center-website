@@ -1,5 +1,7 @@
 export const ErrorPage = () => {
   return (
-    <div>error</div>
+    <div>
+      <p>error</p>
+    </div>
   )
 }

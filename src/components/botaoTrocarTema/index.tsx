@@ -40,7 +40,7 @@ export const BotaoTrocarTema = () => {
 
   return (
     <StyleSheetManager shouldForwardProp={(prop) => !prop.startsWith("isDarkMode")}>
-      <Container>
+      <Container data-testid="container-dark-mode">
         <ToggleButton isDarkMode={isDarkMode} onClick={toggleTheme}>
           <ToggleCircle isDarkMode={isDarkMode}>
             {isDarkMode ? <FaMoon color="#bbd6d8" /> : <FaSun color="#a58f14" />}

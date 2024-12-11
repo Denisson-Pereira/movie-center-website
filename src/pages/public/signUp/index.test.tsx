@@ -4,7 +4,7 @@ import { ThemeProvider } from "../../../context/themeContext";
 import { BrowserRouter } from "react-router";
 import { SignUp } from ".";
 
-describe('SignUp Component', () => {
+describe('SignUp Page', () => {
     it('should show error message if user clicks submit without agreeing to terms', () => {
         render(
             <ThemeProvider>
