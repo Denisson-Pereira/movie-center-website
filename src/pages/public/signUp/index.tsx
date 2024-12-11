@@ -81,6 +81,7 @@ export const SignUp = () => {
           <TermsCheckbox>
               <input
                 name="check"
+                data-testid="checkUp"
                 type="checkbox"
                 checked={isChecked}
                 onChange={() => setIsChecked(!isChecked)}
